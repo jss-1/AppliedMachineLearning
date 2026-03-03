@@ -7,3 +7,7 @@ nltk
 dvc
 dvc-gdrive
 mlflow
+flask
+pytest
+pytest-cov
+requests
