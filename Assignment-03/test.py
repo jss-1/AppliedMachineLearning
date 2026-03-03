@@ -142,3 +142,93 @@ def test_score_threshold_edge(model, case):
     pred_one, _ = score(case["text"], model, 1.0)
     assert pred_one == False, \
         f"{case['id']}: threshold=1 should be False, got {pred_one} (propensity={prop:.4f})"
+
+
+ERROR_CASES = [
+    {"id": "missing_text", "payload": {"threshold": 0.5}, "expected_status": 422},
+    {"id": "bad_content_type", "payload": "plain text", "expected_status": 415},
+    {"id": "bad_threshold_type", "payload": {"text": "hello", "threshold": "high"}, "expected_status": 422},
+    {"id": "text_not_string", "payload": {"text": 123}, "expected_status": 422},
+]
+
+
+@pytest.fixture(scope="module")
+def flask_app():
+    """Launches flask app on port 5001 and waits until ready.
+
+    Starts the app as a subprocess, polls until it accepts connections,
+    then yields the base URL. Terminates the process on teardown.
+
+    Returns:
+        str: base URL of the running flask app
+    """
+    proc = subprocess.Popen(
+        ["python", "app.py", "--port", "5001"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    url = "http://127.0.0.1:5001"
+    time.sleep(3)
+    yield url
+    proc.terminate()
+    proc.wait()
+
+
+@pytest.mark.parametrize("case", SCORE_CASES, ids=[c["id"] for c in SCORE_CASES])
+def test_flask_score(flask_app, model, case):
+    """Checks that flask endpoint returns correct prediction and propensity.
+
+    Compares the endpoint response against direct score() function output
+    to verify the HTTP layer does not alter results.
+
+    Args:
+        flask_app (str): base URL of flask app
+        model (Pipeline): trained sklearn pipeline
+        case (dict): test case with id, text, expected_prediction
+    """
+    resp = requests.post(f"{flask_app}/score", json={"text": case["text"], "threshold": 0.5})
+    assert resp.status_code == 200, f"{case['id']}: status {resp.status_code}"
+    result = resp.json()
+
+    expected_pred, expected_prop = score(case["text"], model, 0.5)
+    assert result["prediction"] == expected_pred, \
+        f"{case['id']}: prediction mismatch, got {result['prediction']}, expected {expected_pred}"
+    assert abs(result["propensity"] - expected_prop) < 1e-6, \
+        f"{case['id']}: propensity mismatch, got {result['propensity']}, expected {expected_prop}"
+
+
+@pytest.mark.parametrize("case", SCORE_CASES, ids=[c["id"] for c in SCORE_CASES])
+def test_flask_response_types(flask_app, case):
+    """Checks that flask endpoint returns correct response types.
+
+    Prediction must be bool, propensity must be float in the JSON response.
+
+    Args:
+        flask_app (str): base URL of flask app
+        case (dict): test case with id, text, expected_prediction
+    """
+    resp = requests.post(f"{flask_app}/score", json={"text": case["text"]})
+    result = resp.json()
+    assert isinstance(result["prediction"], bool), \
+        f"{case['id']}: prediction is {type(result['prediction'])}, expected bool"
+    assert isinstance(result["propensity"], float), \
+        f"{case['id']}: propensity is {type(result['propensity'])}, expected float"
+
+
+@pytest.mark.parametrize("case", ERROR_CASES, ids=[c["id"] for c in ERROR_CASES])
+def test_flask_errors(flask_app, case):
+    """Checks that flask endpoint returns correct error status codes.
+
+    Tests missing fields, wrong content type, bad threshold type,
+    and non-string text input.
+
+    Args:
+        flask_app (str): base URL of flask app
+        case (dict): test case with id, payload, expected_status
+    """
+    if case["id"] == "bad_content_type":
+        resp = requests.post(f"{flask_app}/score", data=case["payload"])
+    else:
+        resp = requests.post(f"{flask_app}/score", json=case["payload"])
+    assert resp.status_code == case["expected_status"], \
+        f"{case['id']}: status {resp.status_code}, expected {case['expected_status']}"

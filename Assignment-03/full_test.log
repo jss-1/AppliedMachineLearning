@@ -1,0 +1,72 @@
+Script started on 2026-03-03 20:18:18+05:30 [COMMAND="python -m pytest test.py -v" TERM="foot-direct" TTY="/dev/pts/0" COLUMNS="168" LINES="17"]
+[1m========================================================================= test session starts ==========================================================================[0m
+platform linux -- Python 3.12.12, pytest-9.0.2, pluggy-1.6.0 -- /home/jugaad/github/appliedmachinelearning/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/jugaad/github/appliedmachinelearning/Assignment-03
+plugins: anyio-4.12.1, hydra-core-1.3.2, cov-7.0.0
+[1mcollecting ... [0m[1mcollecting 60 items                                                                                                                                                    [0m[1mcollected 60 items                                                                                                                                                     [0m
+
+test.py::test_score_smoke[spam_1] [32mPASSED[0m[32m                                                                                                                         [  1%][0m
+test.py::test_score_smoke[spam_2] [32mPASSED[0m[32m                                                                                                                         [  3%][0m
+test.py::test_score_smoke[spam_3] [32mPASSED[0m[32m                                                                                                                         [  5%][0m
+test.py::test_score_smoke[spam_4] [32mPASSED[0m[32m                                                                                                                         [  6%][0m
+test.py::test_score_smoke[ham_1] [32mPASSED[0m[32m                                                                                                                          [  8%][0m
+test.py::test_score_smoke[ham_2] [32mPASSED[0m[32m                                                                                                                          [ 10%][0m
+test.py::test_score_smoke[ham_3] [32mPASSED[0m[32m                                                                                                                          [ 11%][0m
+test.py::test_score_smoke[ham_4] [32mPASSED[0m[32m                                                                                                                          [ 13%][0m
+test.py::test_score_prediction[spam_1] [32mPASSED[0m[32m                                                                                                                    [ 15%][0m
+test.py::test_score_prediction[spam_2] [32mPASSED[0m[32m                                                                                                                    [ 16%][0m
+test.py::test_score_prediction[spam_3] [32mPASSED[0m[32m                                                                                                                    [ 18%][0m
+test.py::test_score_prediction[spam_4] [32mPASSED[0m[32m                                                                                                                    [ 20%][0m
+test.py::test_score_prediction[ham_1] [32mPASSED[0m[32m                                                                                                                     [ 21%][0m
+test.py::test_score_prediction[ham_2] [32mPASSED[0m[32m                                                                                                                     [ 23%][0m
+test.py::test_score_prediction[ham_3] [32mPASSED[0m[32m                                                                                                                     [ 25%][0m
+test.py::test_score_prediction[ham_4] [32mPASSED[0m[32m                                                                                                                     [ 26%][0m
+test.py::test_score_output_types[spam_1] [32mPASSED[0m[32m                                                                                                                  [ 28%][0m
+test.py::test_score_output_types[spam_2] [32mPASSED[0m[32m                                                                                                                  [ 30%][0m
+test.py::test_score_output_types[spam_3] [32mPASSED[0m[32m                                                                                                                  [ 31%][0m
+test.py::test_score_output_types[spam_4] [32mPASSED[0m[32m                                                                                                                  [ 33%][0m
+test.py::test_score_output_types[ham_1] [32mPASSED[0m[32m                                                                                                                   [ 35%][0m
+test.py::test_score_output_types[ham_2] [32mPASSED[0m[32m                                                                                                                   [ 36%][0m
+test.py::test_score_output_types[ham_3] [32mPASSED[0m[32m                                                                                                                   [ 38%][0m
+test.py::test_score_output_types[ham_4] [32mPASSED[0m[32m                                                                                                                   [ 40%][0m
+test.py::test_score_propensity_range[spam_1] [32mPASSED[0m[32m                                                                                                              [ 41%][0m
+test.py::test_score_propensity_range[spam_2] [32mPASSED[0m[32m                                                                                                              [ 43%][0m
+test.py::test_score_propensity_range[spam_3] [32mPASSED[0m[32m                                                                                                              [ 45%][0m
+test.py::test_score_propensity_range[spam_4] [32mPASSED[0m[32m                                                                                                              [ 46%][0m
+test.py::test_score_propensity_range[ham_1] [32mPASSED[0m[32m                                                                                                               [ 48%][0m
+test.py::test_score_propensity_range[ham_2] [32mPASSED[0m[32m                                                                                                               [ 50%][0m
+test.py::test_score_propensity_range[ham_3] [32mPASSED[0m[32m                                                                                                               [ 51%][0m
+test.py::test_score_propensity_range[ham_4] [32mPASSED[0m[32m                                                                                                               [ 53%][0m
+test.py::test_score_threshold_edge[spam_1] [32mPASSED[0m[32m                                                                                                                [ 55%][0m
+test.py::test_score_threshold_edge[spam_2] [32mPASSED[0m[32m                                                                                                                [ 56%][0m
+test.py::test_score_threshold_edge[spam_3] [32mPASSED[0m[32m                                                                                                                [ 58%][0m
+test.py::test_score_threshold_edge[spam_4] [32mPASSED[0m[32m                                                                                                                [ 60%][0m
+test.py::test_score_threshold_edge[ham_1] [32mPASSED[0m[32m                                                                                                                 [ 61%][0m
+test.py::test_score_threshold_edge[ham_2] [32mPASSED[0m[32m                                                                                                                 [ 63%][0m
+test.py::test_score_threshold_edge[ham_3] [32mPASSED[0m[32m                                                                                                                 [ 65%][0m
+test.py::test_score_threshold_edge[ham_4] [32mPASSED[0m[32m                                                                                                                 [ 66%][0m
+test.py::test_flask_score[spam_1] [32mPASSED[0m[32m                                                                                                                         [ 68%][0m
+test.py::test_flask_score[spam_2] [32mPASSED[0m[32m                                                                                                                         [ 70%][0m
+test.py::test_flask_score[spam_3] [32mPASSED[0m[32m                                                                                                                         [ 71%][0m
+test.py::test_flask_score[spam_4] [32mPASSED[0m[32m                                                                                                                         [ 73%][0m
+test.py::test_flask_score[ham_1] [32mPASSED[0m[32m                                                                                                                          [ 75%][0m
+test.py::test_flask_score[ham_2] [32mPASSED[0m[32m                                                                                                                          [ 76%][0m
+test.py::test_flask_score[ham_3] [32mPASSED[0m[32m                                                                                                                          [ 78%][0m
+test.py::test_flask_score[ham_4] [32mPASSED[0m[32m                                                                                                                          [ 80%][0m
+test.py::test_flask_response_types[spam_1] [32mPASSED[0m[32m                                                                                                                [ 81%][0m
+test.py::test_flask_response_types[spam_2] [32mPASSED[0m[32m                                                                                                                [ 83%][0m
+test.py::test_flask_response_types[spam_3] [32mPASSED[0m[32m                                                                                                                [ 85%][0m
+test.py::test_flask_response_types[spam_4] [32mPASSED[0m[32m                                                                                                                [ 86%][0m
+test.py::test_flask_response_types[ham_1] [32mPASSED[0m[32m                                                                                                                 [ 88%][0m
+test.py::test_flask_response_types[ham_2] [32mPASSED[0m[32m                                                                                                                 [ 90%][0m
+test.py::test_flask_response_types[ham_3] [32mPASSED[0m[32m                                                                                                                 [ 91%][0m
+test.py::test_flask_response_types[ham_4] [32mPASSED[0m[32m                                                                                                                 [ 93%][0m
+test.py::test_flask_errors[missing_text] [32mPASSED[0m[32m                                                                                                                  [ 95%][0m
+test.py::test_flask_errors[bad_content_type] [32mPASSED[0m[32m                                                                                                              [ 96%][0m
+test.py::test_flask_errors[bad_threshold_type] [32mPASSED[0m[32m                                                                                                            [ 98%][0m
+test.py::test_flask_errors[text_not_string] [32mPASSED[0m[32m                                                                                                               [100%][0m
+
+[32m========================================================================== [32m[1m60 passed[0m[32m in 4.80s[0m[32m ==========================================================================[0m
+
+Script done on 2026-03-03 20:18:24+05:30 [COMMAND_EXIT_CODE="0"]
