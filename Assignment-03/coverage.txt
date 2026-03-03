@@ -1,0 +1,79 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-9.0.2, pluggy-1.6.0 -- /home/jugaad/github/appliedmachinelearning/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/jugaad/github/appliedmachinelearning/Assignment-03
+plugins: anyio-4.12.1, hydra-core-1.3.2, cov-7.0.0
+collecting ... collected 60 items
+
+test.py::test_score_smoke[spam_1] PASSED                                 [  1%]
+test.py::test_score_smoke[spam_2] PASSED                                 [  3%]
+test.py::test_score_smoke[spam_3] PASSED                                 [  5%]
+test.py::test_score_smoke[spam_4] PASSED                                 [  6%]
+test.py::test_score_smoke[ham_1] PASSED                                  [  8%]
+test.py::test_score_smoke[ham_2] PASSED                                  [ 10%]
+test.py::test_score_smoke[ham_3] PASSED                                  [ 11%]
+test.py::test_score_smoke[ham_4] PASSED                                  [ 13%]
+test.py::test_score_prediction[spam_1] PASSED                            [ 15%]
+test.py::test_score_prediction[spam_2] PASSED                            [ 16%]
+test.py::test_score_prediction[spam_3] PASSED                            [ 18%]
+test.py::test_score_prediction[spam_4] PASSED                            [ 20%]
+test.py::test_score_prediction[ham_1] PASSED                             [ 21%]
+test.py::test_score_prediction[ham_2] PASSED                             [ 23%]
+test.py::test_score_prediction[ham_3] PASSED                             [ 25%]
+test.py::test_score_prediction[ham_4] PASSED                             [ 26%]
+test.py::test_score_output_types[spam_1] PASSED                          [ 28%]
+test.py::test_score_output_types[spam_2] PASSED                          [ 30%]
+test.py::test_score_output_types[spam_3] PASSED                          [ 31%]
+test.py::test_score_output_types[spam_4] PASSED                          [ 33%]
+test.py::test_score_output_types[ham_1] PASSED                           [ 35%]
+test.py::test_score_output_types[ham_2] PASSED                           [ 36%]
+test.py::test_score_output_types[ham_3] PASSED                           [ 38%]
+test.py::test_score_output_types[ham_4] PASSED                           [ 40%]
+test.py::test_score_propensity_range[spam_1] PASSED                      [ 41%]
+test.py::test_score_propensity_range[spam_2] PASSED                      [ 43%]
+test.py::test_score_propensity_range[spam_3] PASSED                      [ 45%]
+test.py::test_score_propensity_range[spam_4] PASSED                      [ 46%]
+test.py::test_score_propensity_range[ham_1] PASSED                       [ 48%]
+test.py::test_score_propensity_range[ham_2] PASSED                       [ 50%]
+test.py::test_score_propensity_range[ham_3] PASSED                       [ 51%]
+test.py::test_score_propensity_range[ham_4] PASSED                       [ 53%]
+test.py::test_score_threshold_edge[spam_1] PASSED                        [ 55%]
+test.py::test_score_threshold_edge[spam_2] PASSED                        [ 56%]
+test.py::test_score_threshold_edge[spam_3] PASSED                        [ 58%]
+test.py::test_score_threshold_edge[spam_4] PASSED                        [ 60%]
+test.py::test_score_threshold_edge[ham_1] PASSED                         [ 61%]
+test.py::test_score_threshold_edge[ham_2] PASSED                         [ 63%]
+test.py::test_score_threshold_edge[ham_3] PASSED                         [ 65%]
+test.py::test_score_threshold_edge[ham_4] PASSED                         [ 66%]
+test.py::test_flask_score[spam_1] PASSED                                 [ 68%]
+test.py::test_flask_score[spam_2] PASSED                                 [ 70%]
+test.py::test_flask_score[spam_3] PASSED                                 [ 71%]
+test.py::test_flask_score[spam_4] PASSED                                 [ 73%]
+test.py::test_flask_score[ham_1] PASSED                                  [ 75%]
+test.py::test_flask_score[ham_2] PASSED                                  [ 76%]
+test.py::test_flask_score[ham_3] PASSED                                  [ 78%]
+test.py::test_flask_score[ham_4] PASSED                                  [ 80%]
+test.py::test_flask_response_types[spam_1] PASSED                        [ 81%]
+test.py::test_flask_response_types[spam_2] PASSED                        [ 83%]
+test.py::test_flask_response_types[spam_3] PASSED                        [ 85%]
+test.py::test_flask_response_types[spam_4] PASSED                        [ 86%]
+test.py::test_flask_response_types[ham_1] PASSED                         [ 88%]
+test.py::test_flask_response_types[ham_2] PASSED                         [ 90%]
+test.py::test_flask_response_types[ham_3] PASSED                         [ 91%]
+test.py::test_flask_response_types[ham_4] PASSED                         [ 93%]
+test.py::test_flask_errors[missing_text] PASSED                          [ 95%]
+test.py::test_flask_errors[bad_content_type] PASSED                      [ 96%]
+test.py::test_flask_errors[bad_threshold_type] PASSED                    [ 98%]
+test.py::test_flask_errors[text_not_string] PASSED                       [100%]/home/jugaad/github/appliedmachinelearning/.venv/lib/python3.12/site-packages/coverage/inorout.py:561: CoverageWarning: Module app was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.13.4/messages.html#warning-module-not-imported
+  self.warn(f"Module {pkg} was never imported.", slug="module-not-imported")
+
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.12-final-0 _______________
+
+Name       Stmts   Miss  Cover
+------------------------------
+score.py       6      0   100%
+------------------------------
+TOTAL          6      0   100%
+============================== 60 passed in 7.11s ==============================
